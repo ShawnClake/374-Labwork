@@ -54,4 +54,16 @@ public class LinkedList {
 		return returnElement;
 	}
 	
+	public void printLinkedListHead() 
+	{
+		
+		ListElement current = head;
+		while(current != null)
+		{
+			System.out.print(current.getData());
+			current = current.getNext();
+		}
+		
+	}
+	
 }
