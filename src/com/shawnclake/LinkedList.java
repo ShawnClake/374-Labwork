@@ -56,7 +56,10 @@ public class LinkedList {
 		}
 		
 		if(current.getNext() != null)
-			previous = current.getNext();
+		{
+			previous.setNext(current.getNext());
+			current.getNext().setPrevious(previous);
+		}
 		
 		ListElement returnElement = current;
 		
