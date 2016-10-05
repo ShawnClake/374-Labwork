@@ -18,6 +18,7 @@ public class LinkedList {
 		if(head == null)
 		{
 			head = le;
+			tail = le;
 			return;
 		}
 		
@@ -27,6 +28,8 @@ public class LinkedList {
 			current = current.getNext();
 		}
 		current.setNext(le);
+		le.setPrevious(current);
+		tail = le;
 	}
 	
 	public ListElement getElement(int index)
