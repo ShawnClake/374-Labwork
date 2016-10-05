@@ -13,6 +13,12 @@ public class LinkedList {
 	
 	public void addElement(ListElement le)
 	{
+		if(head == null)
+		{
+			head = le;
+			return;
+		}
+		
 		ListElement current = head;
 		while(current.getNext() != null)
 		{
