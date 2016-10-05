@@ -21,6 +21,15 @@ public class LinkedList {
 		current.setNext(le);
 	}
 	
-	
+	public ListElement getElement(int index)
+	{
+		ListElement current = head;
+		while((current.getNext() != null) && (index > 0))
+		{
+			index--;
+			current = current.getNext();
+		}
+		return current;
+	}
 	
 }
