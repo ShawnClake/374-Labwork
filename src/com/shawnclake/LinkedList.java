@@ -32,4 +32,26 @@ public class LinkedList {
 		return current;
 	}
 	
+	public ListElement deleteElement(int index)
+	{
+		ListElement current = head;
+		ListElement previous = current;
+		
+		while((current.getNext() != null) && (index > 0))
+		{
+			index--;
+			previous = current;
+			current = current.getNext();
+		}
+		
+		if(current.getNext() != null)
+			previous = current.getNext();
+		
+		ListElement returnElement = current;
+		
+		current = null;
+		
+		return returnElement;
+	}
+	
 }
