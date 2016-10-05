@@ -11,6 +11,8 @@ public class LinkedList {
 
 	ListElement head = null;
 	
+	ListElement tail = null;
+	
 	public void addElement(ListElement le)
 	{
 		if(head == null)
