@@ -66,7 +66,7 @@ public class LinkedList {
 		ListElement current = head;
 		while(current != null)
 		{
-			System.out.print(current.getData());
+			System.out.print(current.getData() + "\n");
 			current = current.getNext();
 		}
 		

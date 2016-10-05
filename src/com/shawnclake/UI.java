@@ -17,9 +17,13 @@ public class UI {
 		ListElement le = new ListElement();
 		le.setData(5);
 		
+		ListElement le2 = new ListElement();
+		le2.setData(10);
+		
 		LinkedList list = new LinkedList();
 		
 		list.addElement(le);
+		list.addElement(le2);
 		
 		list.printLinkedListHead();
 		
