@@ -61,6 +61,11 @@ public class LinkedList {
 			current.getNext().setPrevious(previous);
 		}
 		
+		if(current.getNext() == null)
+		{
+			tail = previous;
+		}
+		
 		ListElement returnElement = current;
 		
 		current = null;
@@ -78,6 +83,16 @@ public class LinkedList {
 			current = current.getNext();
 		}
 		
+	}
+	
+	public void printLinkedListTail()
+	{
+		ListElement current = tail;
+		while(current != null)
+		{
+			System.out.print(current.getData() + "\n");
+			current = current.getPrevious();
+		}
 	}
 	
 }
