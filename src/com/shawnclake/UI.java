@@ -58,6 +58,16 @@ public class UI {
 				list.printLinkedListHead();
 			}
 			
+			if(input.equals("4"))
+			{
+				int index = 0;
+				System.out.println("Enter the index to print (int): ");
+				index = in.nextInt();
+				
+				System.out.println(list.getElement(index).getData());
+				
+			}
+			
 			
 		}
 		
@@ -67,6 +77,7 @@ public class UI {
 		System.out.println("Enter 1 to add an element");
 		System.out.println("Enter 2 to delete an element");
 		System.out.println("Enter 3 to print from head");
+		System.out.println("Enter 4 to print a node");
 		System.out.println("Enter q to exit");
 	}
 
