@@ -13,6 +13,8 @@ public class LinkedList {
 	
 	ListElement tail = null;
 	
+	int length = 0;
+	
 	public void addElement(ListElement le)
 	{
 		if(head == null)
@@ -30,6 +32,8 @@ public class LinkedList {
 		current.setNext(le);
 		le.setPrevious(current);
 		tail = le;
+		
+		length++;
 	}
 	
 	public ListElement getElement(int index)
@@ -45,30 +49,51 @@ public class LinkedList {
 	
 	public ListElement deleteElement(int index)
 	{
-		ListElement current = head;
-		ListElement previous = current;
 		
-		while((current.getNext() != null) && (index > 0))
+		if(index == 0)
 		{
-			index--;
-			previous = current;
+			head = head.getNext();
+		}
+		
+		if(head == null)
+		{
+			tail = null;
+			length = 0;
+			return head;
+		}
+		
+		ListElement current = head;
+		
+		if(length > 0 && index > length)
+		{
+			index = length;
+		}
+		
+		for(int i = 0; i < index; i++)
+		{
 			current = current.getNext();
 		}
 		
-		if(current.getNext() != null)
+		if(index == length)
 		{
-			previous.setNext(current.getNext());
-			current.getNext().setPrevious(previous);
+			ListElement returnElement = current;
+			
+			current.getPrevious().setNext(current.getNext());
+			tail = current.getPrevious();
+			
+			current = null;
+			
+			return returnElement;
 		}
-		
-		if(current.getNext() == null)
-		{
-			tail = previous;
-		}
-		
+			
 		ListElement returnElement = current;
 		
+		current.getNext().setPrevious(current.getPrevious());
+		current.getPrevious().setNext(current.getNext());
+		
 		current = null;
+		
+		length--;
 		
 		return returnElement;
 	}
