@@ -2,7 +2,7 @@
  * 
  */
 package com.shawnclake;
-
+import java.util.Scanner;
 /**
  * @author sseStudent_2
  *
@@ -14,19 +14,60 @@ public class UI {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ListElement le = new ListElement();
-		le.setData(5);
 		
-		ListElement le2 = new ListElement();
-		le2.setData(10);
-		
+		Scanner in = new Scanner(System.in);
 		LinkedList list = new LinkedList();
 		
-		list.addElement(le);
-		list.addElement(le2);
+		System.out.println("Doubly Linked List");
 		
-		list.printLinkedListHead();
+		boolean running = true;
 		
+		while(running)
+		{
+			printMenu();
+			
+			String input = in.nextLine();
+			
+			if(input.equals("q")) {
+				running = false;				
+			}
+			
+			if(input.equals("1"))
+			{
+				int data = 0;
+				System.out.println("Enter the data for the element (int): ");
+				data = in.nextInt();
+				
+				ListElement le = new ListElement();
+				le.setData(data);
+				
+				list.addElement(le);
+			}
+			
+			if(input.equals("2"))
+			{
+				int index = 0;
+				System.out.println("Enter the index to delete (int): ");
+				index = in.nextInt();
+				
+				ListElement le = list.deleteElement(index);
+			}
+			
+			if(input.equals("3"))
+			{
+				list.printLinkedListHead();
+			}
+			
+			
+		}
+		
+	}
+	
+	public static void printMenu() {
+		System.out.println("Enter 1 to add an element");
+		System.out.println("Enter 2 to delete an element");
+		System.out.println("Enter 3 to print from head");
+		System.out.println("Enter q to exit");
 	}
 
 }
