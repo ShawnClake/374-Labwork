@@ -43,17 +43,25 @@ public class LinkedList {
 		ListElement current = head;
 		ListElement previous = current;
 		
-		while((current.getNext() != null) && (index > 0))
+		if(index == 0)
 		{
-			index--;
+			head = head.getNext();
+		}
+		
+		if(head == null)
+		{
+			return head;
+		}
+		
+		for(int i = 0; i < index; i++)
+		{
 			previous = current;
 			current = current.getNext();
 		}
-		
-		if(current.getNext() != null)
-			previous = current.getNext();
-		
+	
 		ListElement returnElement = current;
+		
+		previous.setNext(current.getNext());
 		
 		current = null;
 		
